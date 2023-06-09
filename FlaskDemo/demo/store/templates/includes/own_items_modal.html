@@ -1,0 +1,31 @@
+<style>
+    .modal-content{
+       background-color: #212121;
+    }
+</style>
+
+<div class="modal" id="exampleModal2" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div cl ass="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <form method="POST">
+            {{ sell_form.hidden_tag() }}
+            <h4 style="text-align: center;">Are you sure, you want to sell this {{own_item.pname}} for price {{own_item.price}}?</h4>
+            <p style="text-align: center;">After selling you can buy only if it's avilable on store</p>
+            <div class="text-center">
+            <input id="sell_item" name="sell_item" type="hidden" value="{{own_item.pname}}">
+            {{sell_form.submit(class="btn btn-outline-danger btn-block")}}
+        </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+           
+      
+        </div>
+      </div>
+    </div>
+  </div>

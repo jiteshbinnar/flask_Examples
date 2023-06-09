@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% block title %}
+<h2>Latest comments</h2>
+{% endblock %}
+
+{% for comment in comments %}
+<div class="card">
+    <div class="card-body" style="margin-top: 30px;">
+       
+<h6>Comment:-{{comment.content}}</h6>
+
+<p>On post: {{comment.post.title}}</p>
+<a href="{{ url_for('index')}}"><button type="button" class="btn btn-info btn-sm">Back</button></a>
+</div>
+</div>
+    {% endfor %}
+
+
+{% endblock %}

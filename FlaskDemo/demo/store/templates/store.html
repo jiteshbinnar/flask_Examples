@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+Store Page
+{% endblock %}
+
+{% block content %}
+
+<div class="row" style="margin-top: 60px;">
+  
+  <div class="col" style="margin-left: 60px;">
+    <h4>Available items in the store</h4>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in items %}
+          {% include 'includes/items_modal.html' %}
+          <tr>
+            
+              <td>{{item.id}}</td>
+              <td>{{item.pname}}</td>
+              <td>{{item.price}}</td>
+              <td>
+                  <button type="button" class="btn btn-info btn-sm"data-bs-toggle="modal" data-bs-target="#exampleModal">Info</button>
+                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal1">purchse</button>
+    
+              </td>
+            </tr>
+          {% endfor %}
+       
+       </tbody>
+    </table>
+  </div>
+ 
+  <div class="col">
+   <h4>Available items for sell</h4>
+   <div class="card" style="width: 18rem">
+  <div class="card-body" style="background-color: #212121;">
+
+    {% for own_item in own_items %}
+    {% include 'includes/own_items_modal.html' %}
+    <h5 class="card-title" >{{own_item.pname}}</h5>
+    <p class="card-text"> {{own_item.pname}} of price {{own_item.price}}$</p>
+    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal2">Sell item</button>
+    {% endfor %}
+  </div>
+</div>
+
+  </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+{% from 'macros.html' import display_tags %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% block title %}
+<h2>List of Tags: #{{tags.name}}</h2>
+{% endblock %}
+
+{% for post in tags.posts %}
+
+<div class="card">
+    <div class="card-body" style="margin-top: 30px;">
+       
+<h5>#{{post.id}}</h5>
+<h5><a href="{{ url_for('index')}}">{{post.title}}</a></h5>
+
+{{display_tags(post)}}
+</div>
+</div>
+{% endfor %}
+
+{% endblock %}

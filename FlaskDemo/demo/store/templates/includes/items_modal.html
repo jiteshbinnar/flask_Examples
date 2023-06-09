@@ -1,0 +1,50 @@
+<style>
+    .modal-content{
+       background-color: #212121;
+    }
+</style>
+
+<div class="modal" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Item Id: {{item.id}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Product: {{item.pname}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="exampleModal1" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div cl ass="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <form method="POST">
+            {{ purchase_form.hidden_tag() }}
+            <h4 style="text-align: center;">Are you sure, you want to purchase this {{item.pname}} for price {{item.price}}?</h4>
+            <p style="text-align: center;">After purchasing you can not return it</p>
+            <div class="text-center">
+            <input id="purchase_item" name="purchase_item" type="hidden" value="{{item.pname}}">
+            {{purchase_form.submit(class="btn btn-outline-success btn-block")}}
+        </div>
+         </form>
+        </div>
+        <div class="modal-footer">
+           
+      
+        </div>
+      </div>
+    </div>
+  </div>

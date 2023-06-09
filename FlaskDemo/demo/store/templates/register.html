@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    
+<div class="container">
+    <img class="rounded-circle" style="width: 80px; height:80px"  src="https://www.shutterstock.com/image-vector/shop-logo-good-600w-1290022027.jpg" >
+<h3 class="h3 mb-3 font-weight-normal">
+    Please Create Your Account</h3>
+<form method="POST" class="form-register" style="color: white;">
+    {{ form.hidden_tag() }}
+    {{form.username.label()}}
+    {{form.username(class="form-control",placeholder="User Name")}}
+
+    {{form.email.label()}}
+    {{form.email(class="form-control",placeholder="Email Address")}}
+
+    {{form.password1.label()}}
+    {{form.password1(class="form-control",placeholder="Enter Password")}}
+
+    {{form.password2.label()}}
+    {{form.password2(class="form-control",placeholder="Re-enter Password")}}
+<br>
+<p1>
+    <a href="{{url_for('login_form')}}">Already have an account, Please login here</a>
+    </p1>
+    <br>
+    <br>
+    {{form.submit(class="btn btn-lg btn-block btn-primary")}}
+</form>
+</div>
+</body>
+
+{% endblock %}

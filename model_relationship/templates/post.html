@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+{% block title %}
+{{post.title}}
+{% endblock %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body" style="margin-top: 30px;">
+       
+<h5>Post Id: #{{post.id}}</h5>
+<h5>Title of Post:{{post.title}}</h5>
+<h4>Comments:-</h4>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <h1 style="width: 30%;">{{form.content(class="form-control",placeholder="Comment here")}}</h1>
+    {{form.submit(class="btn btn-primary")}}
+
+
+
+</form>
+{% for p in post.comments %}
+<h6>#{{p.id}}</h6>
+<h6>{{p.content}}</h6>
+<form action="{{ url_for('delete_comment', comment_id=p.id) }}" method=delete class=delete_comment>
+    <input type=hidden value="{{ p.content }}"name=Delete />
+    <input type=submit value="Delete" class="btn btn-danger btn-sm"/>
+  </form>
+
+{% endfor %}
+</div>
+</div>
+{% endblock %}
+

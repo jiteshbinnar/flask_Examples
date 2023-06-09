@@ -1,0 +1,29 @@
+{% from 'macros.html' import display_tags %}
+{% extends 'base.html' %}
+{% block title %}
+ Posts
+{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+<div class="card">
+    <div class="card-body" style="margin-top: 30px;">
+       
+
+        <h5>Post Id: #{{post.id}}</h5>
+        <h5>
+            Title of Post:<a href="{{ url_for('post', post_id=post.id)}}" style="font-style: italic;">{{post.title}}</a>
+        </h5>
+        {{display_tags(post)}}
+    </div>
+  </div>
+  <br>
+  {% endfor %}
+
+{% endblock %}
+<style>
+
+    .card-body{
+        background-color:black;
+    }
+</style>
